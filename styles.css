@@ -1,0 +1,125 @@
+:root {
+    --cream: #faf7f2;
+    --text-dark: #2c2c2c;
+    --text-medium: #5a5a5a;
+    --accent: #8b7355;
+    --node-primary: #4a90e2;
+    --node-danger: #e74c3c;
+    --node-safety: #27ae60;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background-color: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Network visualization (fixed position) */
+.network-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#network {
+    width: 100%;
+    height: 100%;
+}
+
+/* Scrolling content */
+.content {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.content section {
+    min-height: 100vh;
+    padding: 20vh 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+/* Typography */
+.intro {
+    text-align: center;
+}
+
+.intro h1 {
+    font-size: 3.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    color: var(--text-medium);
+    font-style: italic;
+}
+
+/* Annotation styles */
+.annotation {
+    position: absolute;
+    max-width: 320px;
+    font-size: 1.1rem;
+    padding: 1rem;
+    background: rgba(250, 247, 242, 0.9);
+    border-left: 3px solid var(--accent);
+    border-radius: 2px;
+    transform: rotate(-0.5deg);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: auto;
+}
+
+.annotation.visible {
+    opacity: 1;
+}
+
+.quote {
+    font-style: italic;
+    color: var(--text-medium);
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent);
+}
+
+.attribution {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    text-align: right;
+    margin-top: 0.5rem;
+}
+
+/* Network node styles */
+.network-node {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.network-edge {
+    transition: all 0.8s ease;
+    stroke-width: 2;
+    opacity: 0.6;
+}
